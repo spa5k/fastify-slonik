@@ -36,15 +36,7 @@ jobs:
       - name: Test
         run: npm test
 
-  publish-npm:
-    runs-on: ubuntu-latest
-    needs: validate
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: NPM Publish
+        uses: JS-DevTools/npm-publish@v1
         with:
-          node-version: 12.x
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          token: ${{ secrets.NPM_PUBLISH_TOKEN }}

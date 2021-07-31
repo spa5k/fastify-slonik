@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -45,14 +45,14 @@
   },
   "name": "fastify-slonik",
   "author": "Unbuttun <unbuttun@gmail.com>",
-  "module": "dist/mylib.esm.js",
+  "module": "dist/fastify-slonik.esm.js",
   "size-limit": [
     {
-      "path": "dist/mylib.cjs.production.min.js",
+      "path": "dist/fastify-slonik.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/mylib.esm.js",
+      "path": "dist/fastify-slonik.esm.js",
       "limit": "10 KB"
     }
   ],
