@@ -1,3 +1,10 @@
+## [0.0.6](https://github.com/Unbuttun/fastify-slonik/compare/v0.0.5...v0.0.6) (2021-07-31)
+
+
+### Bug Fixes
+
+* **release:** 🐛 removing prepare script ([df74e96](https://github.com/Unbuttun/fastify-slonik/commit/df74e96fec554c85234de5c65daa75984e976898))
+
 ## [0.0.5](https://github.com/Unbuttun/fastify-slonik/compare/v0.0.4...v0.0.5) (2021-07-31)
 
 
