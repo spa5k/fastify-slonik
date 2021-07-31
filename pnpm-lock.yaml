@@ -12,18 +12,18 @@ specifiers:
   '@types/tap': 15.0.5
   '@typescript-eslint/eslint-plugin': ^4.4.1
   dotenv: 10.0.0
-  esbuild: ^0.12.17
-  eslint: ^7.32.0
-  eslint-config-airbnb-typescript: ^12.3.1
-  eslint-config-prettier: ^8.3.0
-  eslint-plugin-import: ^2.22.0
-  eslint-plugin-prettier: ^3.4.0
+  esbuild: 0.12.17
+  eslint: 7.32.0
+  eslint-config-airbnb-typescript: 12.3.1
+  eslint-config-prettier: 8.3.0
+  eslint-plugin-import: 2.23.4
+  eslint-plugin-prettier: 3.4.0
   fastify: ^3.19.2
   fastify-plugin: ^3.0.0
-  husky: ^7.0.1
-  npm-dts: ^1.3.10
+  husky: 7.0.1
+  npm-dts: 1.3.10
   pg-native: ^3.0.0
-  prettier: ^2.3.2
+  prettier: 2.3.2
   semantic-release: 17.4.4
   slonik: ^23.8.5
   slonik-interceptor-query-logging: ^1.3.9
