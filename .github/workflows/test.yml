@@ -23,15 +23,21 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
+      - name: Cache .pnpm-store
+        uses: actions/cache@v1
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+      - name: Install pnpm
+        run: curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6
+      - name: Install Deps
+        run: pnpm install
 
-      - name: Lint
-        run: yarn lint
+      - name: Build
+        run: pnpm build
 
-      - run: docker-compose up -d
+      - name: Docker Compose
+        run: docker-compose up -d
+
       - name: Test
-        run: yarn test
-
-      - name: build
-        run: yarn build
+        run: pnpm test
