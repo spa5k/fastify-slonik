@@ -3,6 +3,7 @@
 node_modules
 dist
 
+build
 build# Logs
 logs
 *.log
@@ -42,7 +43,8 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
-
+build/src
+build/test
 # Dependency directories
 node_modules/
 jspm_packages/
