@@ -1,4 +1,4 @@
-name: Validate & Release
+name: Test
 on: [push]
 jobs:
   validate:
@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [12.x, 14.x]
 
     name: Node.js ${{ matrix.node }}
 
@@ -35,11 +35,3 @@ jobs:
 
       - name: build
         run: yarn build
-
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
