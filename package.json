@@ -1,0 +1,65 @@
+{
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsc -p tsconfig.test.json && tap --100 -j1 -R classic build/test/index.test.js",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "fastify-slonik",
+  "author": "Unbuttun",
+  "module": "dist/mylib.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/mylib.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/mylib.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^5.0.2",
+    "@types/node": "^16.4.8",
+    "@types/tap": "^15.0.5",
+    "dotenv": "^10.0.0",
+    "husky": "^7.0.1",
+    "size-limit": "^5.0.2",
+    "tap": "^15.0.9",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "fastify": "^3.19.2",
+    "fastify-plugin": "^3.0.0",
+    "pg-native": "^3.0.0",
+    "slonik": "^23.8.5",
+    "slonik-interceptor-query-logging": "^1.3.9"
+  }
+}
