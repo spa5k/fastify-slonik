@@ -1,8 +1,5 @@
 name: Validate & Release
-on:
-  push:
-    tags:
-      - v*
+on: [push]
 jobs:
   validate:
     runs-on: ubuntu-latest
