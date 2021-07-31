@@ -23,10 +23,7 @@ const fastifySlonik = async (
       fastify.log.info('Connected to Postgres DB');
     });
   } catch (err) {
-    fastify.log.error(
-      'Error happened while connecting to Postgres DB -> ',
-      err
-    );
+    fastify.log.error('Error happened while connecting to Postgres DB', err);
   }
 
   async function transaction(

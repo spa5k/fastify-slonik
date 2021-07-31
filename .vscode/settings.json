@@ -1,3 +1,9 @@
 {
-  "conventionalCommits.scopes": ["docs", "action", "docker", "release"]
+  "conventionalCommits.scopes": [
+    "docs",
+    "action",
+    "docker",
+    "release",
+    "plugin"
+  ]
 }
