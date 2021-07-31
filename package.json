@@ -8,8 +8,20 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
+  "keywords": [
+    "fastify",
+    "slonik",
+    "postgres",
+    "pg",
+    "fastify-plugin"
+  ],
+  "repository": {
+    "url": "https://github.com/Unbuttun/fastify-slonik",
+    "type": "git"
+  },
+  "description": "Fastify Slonik Plugin",
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
@@ -17,7 +29,8 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "prepublish": "build"
   },
   "husky": {
     "hooks": {
@@ -31,7 +44,7 @@
     "trailingComma": "es5"
   },
   "name": "fastify-slonik",
-  "author": "Unbuttun",
+  "author": "Unbuttun <unbuttun@gmail.com>",
   "module": "dist/mylib.esm.js",
   "size-limit": [
     {

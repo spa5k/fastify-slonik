@@ -1,103 +1,95 @@
-# TSDX User Guide
+# Fastify Slonik
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+A [Fastify](https://www.fastify.io/) plugin that uses the PostgreSQL client, [Slonik](https://www.npmjs.com/package/slonik). Slonik abstracts repeating code patterns, protects against unsafe connection handling and value interpolation, and provides a rich debugging experience.
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
+## Usage
 
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
-
-## Commands
-
-TSDX scaffolds your new library inside `/src`.
-
-To run TSDX, use:
-
-```bash
-npm start # or yarn start
+Yarn
+```sh
+yarn add fastify-slonik
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
-
-To do a one-off build, use `npm run build` or `yarn build`.
-
-To run tests, use `npm test` or `yarn test`.
-
-## Configuration
-
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle Analysis
-
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
+NPM
+```sh
+npm i fastify-slonik
 ```
+## Example:
 
-### Rollup
-
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
-
-### TypeScript
-
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
+### Import the Plugin
 ```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
+// index.js
+const fastifySlonik = require('fastify-slonik')
+```
+or
+```js
+import fastifySlonik from 'fastify-slonik';
+```
 
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
+### Register the Plugin
+```js
+// register fastify-slonik
+fastify.register(fastifySlonik, {
+  connectionString: process.env.DATABASE_URL,
+  {
+    queryLogging: true // Optional
+  }
+})
+
+// setup test route
+fastify.get('/users', async function (request, reply) {
+  const { params: { id: userId } } = request
+
+  const queryText = this.sql`
+    SELECT * FROM users
+    WHERE user_id = ${userId}
+  `
+
+  const user = await this.slonik.query(queryText)
+
+  reply.send(user)
 }
 ```
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+## API
 
-## Module Formats
+#### Decorator
 
-CJS, ESModules, and UMD module formats are supported.
+This plugin decorates fastify with `slonik` exposing `connect`, `pool`, `query`, `transaction` and `exists`.
+View [Slonik API](https://github.com/gajus/slonik#slonik-usage-api) for details.
 
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+## Development and Testing
 
-## Named Exports
+[Tap](https://node-tap.org/) is used for testing. Use `npm test` command to run tests.
 
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+### Docker approach
 
-## Including Styles
+```
+$ docker-compose up
+```
 
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
+To run the tests:
 
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
+- Create .env `cp .env.example .env`
 
-## Publishing to NPM
+```
+$ yarn test
+```
 
-We recommend using [np](https://github.com/sindresorhus/np).
+### Custom Postgres approach
+
+1. Set up a database of your choice in a postgres server of your choice
+2. Create the required table using
+    ```sql
+    CREATE TABLE users(id serial PRIMARY KEY, username VARCHAR (50) NOT NULL);
+    ```
+3. Create .env `cp .env.example .env` and update environment variables accordingly
+
+
+## License
+
+Licensed under [MIT](./LICENSE).
+
+
+## Inspirations
+
+[@autotelic/fastify-slonik](https://github.com/autotelic/fastify-slonik)
