@@ -31,7 +31,7 @@ jobs:
 
       - run: docker-compose up -d
       - name: Test
-        run: npm test
+        run: yarn test
 
       - name: NPM Publish
         uses: JS-DevTools/npm-publish@v1

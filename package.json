@@ -8,7 +8,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=12"
   },
   "keywords": [
     "fastify",
@@ -28,8 +28,6 @@
     "test": "tsc -p tsconfig.test.json && tap --100 -j1 -R classic build/test/index.test.js",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
     "prepublish": "build"
   },
   "husky": {
@@ -46,16 +44,6 @@
   "name": "fastify-slonik",
   "author": "Unbuttun <unbuttun@gmail.com>",
   "module": "dist/fastify-slonik.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/fastify-slonik.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/fastify-slonik.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.2",
     "@types/node": "^16.4.8",
