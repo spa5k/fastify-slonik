@@ -20,7 +20,7 @@ const fastifySlonik = async (
 
   try {
     await pool.connect(async () => {
-      fastify.log.info('Connected to Postgres DB Using -> ', connectionString);
+      fastify.log.info('Connected to Postgres DB');
     });
   } catch (err) {
     fastify.log.error(
