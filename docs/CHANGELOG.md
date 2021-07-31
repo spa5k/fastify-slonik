@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/Unbuttun/fastify-slonik/compare/v0.1.2...v0.2.0) (2021-07-31)
+
+
+### Features
+
+* **action:** ✨ Making validate and release action now run only on main branch ([9980835](https://github.com/Unbuttun/fastify-slonik/commit/9980835035e3f5f8e89c0b141f5b3f922614af1d))
+
 ## [0.1.2](https://github.com/Unbuttun/fastify-slonik/compare/v0.1.1...v0.1.2) (2021-07-31)
 
 
