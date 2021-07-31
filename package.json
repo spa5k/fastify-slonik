@@ -27,8 +27,7 @@
     "build": "tsdx build",
     "test": "tsc -p tsconfig.test.json && tap --100 -j1 -R classic build/test/index.test.js",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "prepublish": "build"
+    "prepare": "tsdx build"
   },
   "husky": {
     "hooks": {
