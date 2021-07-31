@@ -55,7 +55,7 @@
     "@types/node": "16.4.8",
     "@types/tap": "15.0.5",
     "dotenv": "10.0.0",
-    "husky": "^7.0.1",
+    "husky": "7.0.1",
     "semantic-release": "17.4.4",
     "tap": "15.0.9",
     "tsdx": "0.14.1",
