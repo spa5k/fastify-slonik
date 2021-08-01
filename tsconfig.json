@@ -11,6 +11,7 @@
     "resolveJsonModule": true,
     // output .js.map sourcemap files for consumers
     "sourceMap": true,
+    "outDir": "builds",
     // match output dir to input dir. e.g. dist/index instead of dist/src/index
     "rootDir": ".",
     // stricter type-checking for stronger correctness. Recommended by TS
@@ -32,6 +33,6 @@
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
-    "noEmit": true
+    "noEmit": false
   }
 }
