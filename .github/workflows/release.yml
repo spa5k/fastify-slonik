@@ -6,13 +6,6 @@ on:
 jobs:
   runner-job:
     runs-on: ubuntu-latest
-    env:
-      DB_USER: postgres
-      DB_PORT: 5432
-      DB_NAME: postgres
-      DB_PASSWORD: postgres
-      DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?sslmode=disable
-
     strategy:
       matrix:
         node-version: [14.x]
@@ -33,10 +26,8 @@ jobs:
           key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install pnpm
         run: curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6
-      - run: pnpm install
-      - run: pnpm lint
-      - run: docker-compose up -d
-      - run: pnpm test
+      - name: Install Deps
+        run: pnpm install
 
       - name: Semantic Release
         run: pnpm semantic-release

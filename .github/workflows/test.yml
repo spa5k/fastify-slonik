@@ -30,7 +30,11 @@ jobs:
           key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install pnpm
         run: curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6
-      - run: pnpm install
-      - run: pnpm lint
-      - run: docker-compose up -d
-      - run: pnpm test
+      - name: Install deps
+        run: pnpm install
+      - name: Linting
+        run: pnpm lint
+      - name: Docker Compose UP
+        run: docker-compose up -d
+      - name: Test
+        run: pnpm test
