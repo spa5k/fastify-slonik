@@ -12,24 +12,7 @@ import fastifySlonik from "../index";
 
 config();
 
-const user = process.env.POSTGRES_USER as string;
-const password = process.env.POSTGRES_PASSWORD as string;
-const hostname = process.env.POSTGRES_HOST as string;
-const db = process.env.POSTGRES_DB as string;
-const port = process.env.PORT as string;
-
 const DATABASE_URL = process.env.DATABASE_URL as string;
-
-console.log(
-  "Connection string",
-  DATABASE_URL,
-  user,
-  password,
-  hostname,
-  db,
-  port
-);
-
 const BAD_DB_NAME = "db_that_does_not_exist";
 const connectionStringBadDbName = DATABASE_URL.replace(
   /\/[^/]+$/,

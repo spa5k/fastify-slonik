@@ -5,6 +5,7 @@
     "docker",
     "release",
     "plugin",
-    "build"
+    "build",
+    "test"
   ]
 }
