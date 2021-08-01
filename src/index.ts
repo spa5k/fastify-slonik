@@ -5,7 +5,7 @@ import { createQueryLoggingInterceptor } from "slonik-interceptor-query-logging"
 
 type SlonikOptions = {
   connectionString: string;
-  queryLogging?: true | boolean | null;
+  queryLogging?: boolean;
 };
 
 const fastifySlonik = async (

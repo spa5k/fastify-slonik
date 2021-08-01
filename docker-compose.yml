@@ -13,7 +13,7 @@ services:
       docker_net:
         ipv4_address: 172.22.0.100
     volumes:
-      - ./test/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - .src/test/init.sql:/docker-entrypoint-initdb.d/init.sql
 networks:
   docker_net:
     ipam:

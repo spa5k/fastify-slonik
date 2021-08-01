@@ -37,9 +37,7 @@ import fastifySlonik from "fastify-slonik";
 // register fastify-slonik
 fastify.register(fastifySlonik, {
   connectionString: process.env.DATABASE_URL,
-  {
-    queryLogging: true // Optional
-  }
+  queryLogging: true // Optional
 })
 
 // setup test route
