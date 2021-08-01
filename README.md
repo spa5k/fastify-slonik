@@ -5,34 +5,39 @@ A [Fastify](https://www.fastify.io/) plugin that uses the PostgreSQL client, [Sl
 ## Usage
 
 Yarn
+
 ```sh
 yarn add fastify-slonik
 ```
 
 NPM
+
 ```sh
 npm i fastify-slonik
 ```
+
 ## Example:
 
 ### Import the Plugin
+
 ```js
 // index.js
-const fastifySlonik = require('fastify-slonik')
+const fastifySlonik = require("fastify-slonik");
 ```
+
 or
+
 ```js
-import fastifySlonik from 'fastify-slonik';
+import fastifySlonik from "fastify-slonik";
 ```
 
 ### Register the Plugin
+
 ```js
 // register fastify-slonik
 fastify.register(fastifySlonik, {
   connectionString: process.env.DATABASE_URL,
-  {
-    queryLogging: true // Optional
-  }
+  queryLogging: true // Optional
 })
 
 // setup test route
@@ -79,16 +84,14 @@ $ yarn test
 
 1. Set up a database of your choice in a postgres server of your choice
 2. Create the required table using
-    ```sql
-    CREATE TABLE users(id serial PRIMARY KEY, username VARCHAR (50) NOT NULL);
-    ```
+   ```sql
+   CREATE TABLE users(id serial PRIMARY KEY, username VARCHAR (50) NOT NULL);
+   ```
 3. Create .env `cp .env.example .env` and update environment variables accordingly
-
 
 ## License
 
 Licensed under [MIT](./LICENSE).
-
 
 ## Inspirations
 

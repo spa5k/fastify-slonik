@@ -4,6 +4,8 @@
     "action",
     "docker",
     "release",
-    "plugin"
+    "plugin",
+    "build",
+    "test"
   ]
 }
