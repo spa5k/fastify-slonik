@@ -36,7 +36,6 @@ const main = async () => {
 
       await fastify.register(fastifySlonik, {
         connectionString: DATABASE_URL,
-        queryLogging: true,
       });
       await fastify.ready();
 
@@ -58,17 +57,6 @@ const main = async () => {
       const testName = "foobar";
 
       const fastify = Fastify();
-
-      t.teardown(async () => {
-        const addTable = fastify.sql`
-        CREATE TABLE IF NOT EXISTS users(
-          id serial PRIMARY KEY,
-          username VARCHAR (50) NOT NULL
-        );
-        `;
-        await fastify.slonik.transaction(addTable);
-        await fastify.close();
-      });
 
       t.teardown(async () => {
         const removeUser = fastify.sql`

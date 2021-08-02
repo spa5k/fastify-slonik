@@ -1,31 +1,36 @@
 import { FastifyInstance } from "fastify";
 import fastifyPlugin from "fastify-plugin";
-import { createPool, sql, TaggedTemplateLiteralInvocationType } from "slonik";
-import { createQueryLoggingInterceptor } from "slonik-interceptor-query-logging";
+import {
+  createPool,
+  DatabasePoolType,
+  sql,
+  TaggedTemplateLiteralInvocationType,
+} from "slonik";
 
 type SlonikOptions = {
   connectionString: string;
-  queryLogging?: boolean;
 };
 
 const fastifySlonik = async (
   fastify: FastifyInstance,
   options: SlonikOptions
 ) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-  const interceptors = [createQueryLoggingInterceptor()];
-  const { connectionString, queryLogging } = options;
-  const pool = createPool(connectionString, {
-    interceptors: queryLogging ? interceptors : [],
-  });
+  const { connectionString } = options;
+  let pool: DatabasePoolType;
+  try {
+    pool = createPool(connectionString);
+  } catch (error) {
+    fastify.log.error("🔴 Error happened while connecting to Postgres DB");
+    throw new Error(error);
+  }
 
   try {
     // eslint-disable-next-line @typescript-eslint/require-await
     await pool.connect(async () => {
-      fastify.log.info("Connected to Postgres DB");
+      fastify.log.info("✅ Connected to Postgres DB");
     });
   } catch (err) {
-    fastify.log.error("Error happened while connecting to Postgres DB", err);
+    fastify.log.error("🔴 Error happened while connecting to Postgres DB");
   }
 
   async function transaction(
