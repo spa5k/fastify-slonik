@@ -1,7 +1,7 @@
 {
   "name": "fastify-slonik",
   "description": "Fastify Slonik Plugin",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": "Unbuttun <unbuttun@gmail.com>",
   "commitlint": {
     "extends": [
