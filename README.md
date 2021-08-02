@@ -35,10 +35,15 @@ import fastifySlonik from "fastify-slonik";
 
 ```js
 // register fastify-slonik
-fastify.register(fastifySlonik, {
+try {
+  fastify.register(fastifySlonik, {
   connectionString: process.env.DATABASE_URL,
-  queryLogging: true // Optional
-})
+  })
+} catch(err) {
+  console.log("🔴 Failed to connect, check your Connection string")
+  throw new Error(err);
+}
+
 
 // setup test route
 fastify.get('/users', async function (request, reply) {
