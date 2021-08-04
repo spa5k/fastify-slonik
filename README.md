@@ -2,7 +2,8 @@
 
 A [Fastify](https://www.fastify.io/) plugin that uses the PostgreSQL client, [Slonik](https://www.npmjs.com/package/slonik). Slonik abstracts repeating code patterns, protects against unsafe connection handling and value interpolation, and provides a rich debugging experience.
 
-![npm](https://img.shields.io/npm/v/fastify-slonik?style=for-the-badge)  
+![npm](https://img.shields.io/npm/v/fastify-slonik?style=for-the-badge)
+
 ## Usage
 
 Yarn

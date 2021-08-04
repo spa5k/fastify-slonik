@@ -1,0 +1,6 @@
+src
+dist/test
+dist/index.test.d.ts
+.github
+.nyc_output
+node_modules

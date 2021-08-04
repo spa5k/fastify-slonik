@@ -1,11 +1,10 @@
-import { FastifyInstance } from "fastify";
+import type { FastifyInstance } from "fastify";
 import fastifyPlugin from "fastify-plugin";
-import {
-  createPool,
+import type {
   DatabasePoolType,
-  sql,
   TaggedTemplateLiteralInvocationType,
 } from "slonik";
+import { createPool, sql } from "slonik";
 
 type SlonikOptions = {
   connectionString: string;
@@ -25,17 +24,16 @@ const fastifySlonik = async (
   }
 
   try {
-    // eslint-disable-next-line @typescript-eslint/require-await
     await pool.connect(async () => {
       fastify.log.info("✅ Connected to Postgres DB");
     });
-  } catch (err) {
+  } catch {
     fastify.log.error("🔴 Error happened while connecting to Postgres DB");
   }
 
   async function transaction(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error
     connection: TaggedTemplateLiteralInvocationType<unknown>
   ) {
     return pool.query(connection);
@@ -53,6 +51,7 @@ const fastifySlonik = async (
   fastify.decorate("sql", sql);
 };
 
+// eslint-disable-next-line import/no-default-export
 export default fastifyPlugin(fastifySlonik, {
   fastify: "3.x",
   name: "fastify-slonik",
