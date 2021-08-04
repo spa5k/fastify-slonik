@@ -67,7 +67,7 @@
     "build": "tsup-node",
     "format": "prettier --write .",
     "lint": "eslint src --ext .ts",
-    "test": "tap -j1 -R classic dist/test/index.test.js"
+    "test": "pnpm build && tap -j1 -R classic dist/test/index.test.js"
   },
   "tap": {
     "check-coverage": false
