@@ -1,21 +1,21 @@
+/* eslint-disable import/order */
+/* eslint-disable promise/prefer-await-to-callbacks */
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { config } from "dotenv";
-import Fastify from "fastify";
-import { sql } from "slonik";
+import fastify from "fastify";
+import type { sql } from "slonik";
 import { test } from "tap";
-import fastifySlonik from "../index";
+import fastifySlonik from "..";
 
 config();
 
 const DATABASE_URL = process.env.DATABASE_URL as string;
 const BAD_DB_NAME = "db_that_does_not_exist";
 const connectionStringBadDbName = DATABASE_URL.replace(
-  /\/[^/]+$/,
+  /\/[^/]+$/u,
   `/${BAD_DB_NAME}`
 );
 
@@ -29,54 +29,54 @@ declare module "fastify" {
 const main = async () => {
   try {
     await test("Namespace should exist:", async (tap) => {
-      const fastify = Fastify();
+      const app = fastify();
 
-      // @ts-ignore
-      tap.teardown(() => fastify.close());
+      // @ts-expect-error
+      tap.teardown(() => app.close());
 
-      await fastify.register(fastifySlonik, {
+      await app.register(fastifySlonik, {
         connectionString: DATABASE_URL,
       });
-      await fastify.ready();
+      await app.ready();
 
-      tap.ok(fastify.hasDecorator("slonik"), "has slonik decorator");
-      tap.ok(fastify.slonik.pool);
-      tap.ok(fastify.slonik.connect);
-      tap.ok(fastify.slonik.query);
-      tap.ok(fastify.slonik.transaction);
-      tap.ok(fastify.slonik.exists);
-      tap.ok(fastify.hasDecorator("sql"), "has sql decorator");
+      tap.ok(app.hasDecorator("slonik"), "has slonik decorator");
+      tap.ok(app.slonik.pool);
+      tap.ok(app.slonik.connect);
+      tap.ok(app.slonik.query);
+      tap.ok(app.slonik.transaction);
+      tap.ok(app.slonik.exists);
+      tap.ok(app.hasDecorator("sql"), "has sql decorator");
     });
-  } catch (err) {
+  } catch (error) {
     console.log("Namespace should exist failed");
-    throw new Error(err);
+    throw new Error(error);
   }
 
   try {
     await test("When fastify.slonik root namespace is used:", async (t) => {
       const testName = "foobar";
 
-      const fastify = Fastify();
+      const app = fastify();
 
       t.teardown(async () => {
-        const removeUser = fastify.sql`
+        const removeUser = app.sql`
         DELETE FROM
           users
         WHERE
           username=${testName};
       `;
-        await fastify.slonik.transaction(removeUser);
-        await fastify.close();
+        await app.slonik.transaction(removeUser);
+        await app.close();
       });
 
-      await fastify.register(fastifySlonik, { connectionString: DATABASE_URL });
-      await fastify.ready();
+      await app.register(fastifySlonik, { connectionString: DATABASE_URL });
+      await app.ready();
 
       await t.test("should be able to make a query", async (t0) => {
-        const queryString = fastify.sql`
+        const queryString = app.sql`
         SELECT 1 as one
       `;
-        const queryResult = await fastify.slonik.query(queryString);
+        const queryResult = await app.slonik.query(queryString);
         const {
           rows: [{ one }],
         } = queryResult;
@@ -84,7 +84,7 @@ const main = async () => {
       });
 
       await t.test("should be able to make a transaction", async (t1) => {
-        const queryString = fastify.sql`
+        const queryString = app.sql`
         INSERT INTO
           users(username)
         VALUES
@@ -92,7 +92,7 @@ const main = async () => {
         RETURNING
           *;
       `;
-        const queryResult = await fastify.slonik.transaction(queryString);
+        const queryResult = await app.slonik.transaction(queryString);
         const {
           rows: [{ username }],
         } = queryResult;
@@ -100,7 +100,7 @@ const main = async () => {
       });
 
       await t.test("should be able to make a exists query", async (t2) => {
-        const queryString = fastify.sql`
+        const queryString = app.sql`
         SELECT
           1
         FROM
@@ -108,49 +108,52 @@ const main = async () => {
         WHERE
           username=${testName}
       `;
-        const queryResult = await fastify.slonik.exists(queryString);
+        const queryResult = await app.slonik.exists(queryString);
         t2.ok(queryResult);
       });
     });
-  } catch (err) {
+  } catch (error) {
     console.log("When fastify.slonik root namespace is used: Failed");
-    throw new Error(err);
+    throw new Error(error);
   }
 
   try {
     await test("should throw error when pg fails to perform an operation", async (t) => {
-      const fastify = Fastify();
-      // @ts-ignore
-      t.teardown(() => fastify.close());
+      const app = fastify();
+      // @ts-expect-error
+      t.teardown(() => app.close());
 
-      await fastify.register(fastifySlonik, {
+      await app.register(fastifySlonik, {
         connectionString: connectionStringBadDbName,
       });
 
-      await fastify.ready();
+      await app.ready();
 
-      const queryString = fastify.sql`
+      const queryString = app.sql`
       SELECT 1 as one
     `;
 
       try {
-        const queryResult = await fastify.slonik.query(queryString);
+        const queryResult = await app.slonik.query(queryString);
         t.fail(queryResult);
-      } catch (err) {
-        t.ok(err);
+      } catch (error) {
+        t.ok(error);
         if (
-          err.message === `FATAL:  database "${BAD_DB_NAME}" does not exist`
+          error.message === `FATAL:  database "${BAD_DB_NAME}" does not exist`
         ) {
-          t.ok(err.message);
+          t.ok(error.message);
         }
       }
     });
-  } catch (err) {
+  } catch (error) {
     console.log(
       "should throw error when pg fails to perform an operation: Failed"
     );
-    throw new Error(err);
+    throw new Error(error);
   }
 };
 
-main().catch((err) => console.log(err));
+// eslint-disable-next-line unicorn/prefer-top-level-await
+main().catch((error) => {
+  console.log(error);
+});

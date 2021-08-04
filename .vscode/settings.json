@@ -7,6 +7,7 @@
     "plugin",
     "build",
     "test",
-    "deps"
+    "deps",
+    "lint"
   ]
 }
