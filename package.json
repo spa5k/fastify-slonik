@@ -73,8 +73,8 @@
     "lint": "eslint src --ext .ts",
     "test": "tsc -p tsconfig.test.json && tap -j1 -R classic build/src/test/index.test.js"
   },
-  "typings": "dist/index.d.ts",
   "tap": {
     "check-coverage": false
-  }
+  },
+  "typings": "dist/index.d.ts"
 }
