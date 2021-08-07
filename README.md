@@ -100,6 +100,6 @@ $ yarn test
 
 Licensed under [MIT](./LICENSE).
 
-## Inspirations
+## References
 
 [@autotelic/fastify-slonik](https://github.com/autotelic/fastify-slonik)
