@@ -11,24 +11,30 @@
   "dependencies": {
     "fastify": "^3.20.1",
     "fastify-plugin": "^3.0.0",
-    "slonik": "^23.8.5"
+    "slonik": "^23.9.0"
   },
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
-    "@types/node": "16.4.8",
+    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/commit-analyzer": "8.0.1",
+    "@semantic-release/git": "9.0.0",
+    "@semantic-release/github": "7.2.3",
+    "@semantic-release/npm": "7.1.3",
+    "@semantic-release/release-notes-generator": "9.0.3",
+    "@types/node": "16.4.13",
     "@types/tap": "15.0.5",
     "dotenv": "10.0.0",
     "eslint": "7.32.0",
-    "eslint-config-galex": "^2.16.7",
+    "eslint-config-galex": "2.16.7",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
     "husky": "7.0.1",
-    "np": "^7.5.0",
     "prettier": "2.3.2",
+    "semantic-release": "17.4.4",
     "tap": "15.0.9",
-    "tslib": "^2.3.0",
-    "tsup": "^4.13.1",
+    "tslib": "2.3.0",
+    "tsup": "4.13.1",
     "typescript": "4.3.5"
   },
   "engines": {
@@ -56,14 +62,15 @@
   "module": "dist/index.esm.js",
   "peerDependencies": {
     "fastify": "3.20.1",
-    "slonik": "23.8.5"
+    "slonik": "23.9.0"
   },
   "repository": {
     "url": "https://github.com/Unbuttun/fastify-slonik",
     "type": "git"
   },
   "scripts": {
-    "build": "tsup-node",
+    "build": "NODE_ENV='production' tsup-node",
+    "build:dev": "NODE_ENV='development' tsup-node",
     "format": "prettier --write .",
     "lint": "eslint src --ext .ts",
     "test": "pnpm build && tap -j1 -R classic dist/test/index.test.js"
