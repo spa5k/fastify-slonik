@@ -33,7 +33,6 @@
     "prettier": "2.3.2",
     "semantic-release": "17.4.4",
     "tap": "15.0.9",
-    "ts-node": "10.1.0",
     "tslib": "2.3.0",
     "tsup": "4.13.1",
     "typescript": "4.3.5"
@@ -70,7 +69,8 @@
     "type": "git"
   },
   "scripts": {
-    "build": "tsup-node",
+    "build": "NODE_ENV='production' tsup-node",
+    "build:dev": "NODE_ENV='development' tsup-node",
     "format": "prettier --write .",
     "lint": "eslint src --ext .ts",
     "test": "pnpm build && tap -j1 -R classic dist/test/index.test.js"
