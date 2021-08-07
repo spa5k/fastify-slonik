@@ -12,5 +12,5 @@ export const tsup: Options = {
   bundle: true,
   watch: env === "development",
   skipNodeModulesBundle: true,
-  entryPoints: ["src/index.ts"],
+  entryPoints: ["src/index.ts", "src/test/index.test.ts"],
 };
