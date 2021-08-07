@@ -57,7 +57,7 @@
   "module": "dist/index.esm.js",
   "peerDependencies": {
     "fastify": "3.20.1",
-    "slonik": "23.8.5"
+    "slonik": "23.9.0"
   },
   "repository": {
     "url": "https://github.com/Unbuttun/fastify-slonik",
