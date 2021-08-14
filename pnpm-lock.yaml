@@ -21,7 +21,7 @@ specifiers:
   husky: 7.0.1
   prettier: 2.3.2
   semantic-release: 17.4.4
-  slonik: ^23.9.0
+  slonik: ^24.0.0
   tap: 15.0.9
   tslib: 2.3.1
   tsup: 4.13.1
@@ -30,7 +30,7 @@ specifiers:
 dependencies:
   fastify: 3.20.1
   fastify-plugin: 3.0.0
-  slonik: 23.9.0
+  slonik: 24.0.0
 
 devDependencies:
   '@commitlint/cli': 13.1.0
@@ -1889,11 +1889,6 @@ packages:
       rimraf: 3.0.2
       slash: 3.0.0
     dev: true
-
-  /delay/5.0.0:
-    resolution: {integrity: sha512-ReEBKkIfe4ya47wlPYf/gu5ib6yUG0/Aez0JQZQz94kiWtRQvZIQbTiehsnwHvLSWJnQdhVeqYue7Id1dKr0qw==}
-    engines: {node: '>=10'}
-    dev: false
 
   /delayed-stream/1.0.0:
     resolution: {integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=}
@@ -4355,6 +4350,11 @@ packages:
     engines: {node: '>=4.0.0'}
     dev: false
 
+  /pg-minify/1.6.2:
+    resolution: {integrity: sha512-1KdmFGGTP6jplJoI8MfvRlfvMiyBivMRP7/ffh4a11RUFJ7kC2J0ZHlipoKiH/1hz+DVgceon9U2qbaHpPeyPg==}
+    engines: {node: '>=8.0'}
+    dev: false
+
   /pg-pool/3.4.1_pg@8.7.1:
     resolution: {integrity: sha512-TVHxR/gf3MeJRvchgNHxsYsTCHQ+4wm3VIHSS19z8NC0+gioEhq1okDY1sm/TYbfoP6JLFx01s0ShvZ3puP/iQ==}
     peerDependencies:
@@ -5067,12 +5067,11 @@ packages:
       is-fullwidth-code-point: 3.0.0
     dev: true
 
-  /slonik/23.9.0:
-    resolution: {integrity: sha512-TETKgFVAy3TcXKTvf7YlUtlMzSCdz7VmGUng5z+i5SfiRNW9SUqGsHmPdead5JAAZbI+eu6vBQXQtXzW6pN9gA==}
+  /slonik/24.0.0:
+    resolution: {integrity: sha512-sV5Q5Jxu6TEO6BuT9gL8x8bhoMgP1d1RS598/QBS3mMTZmKaArY8cuYL10vrpssj5Xh9Cmy20sfJDjAJ6M8b0g==}
     engines: {node: '>=10.0'}
     dependencies:
       concat-stream: 2.0.0
-      delay: 5.0.0
       es6-error: 4.1.1
       get-stack-trace: 2.1.1
       hyperid: 2.3.1
@@ -5083,6 +5082,7 @@ packages:
       pg-copy-streams: 5.1.1
       pg-copy-streams-binary: 2.0.1
       pg-cursor: 2.7.1_pg@8.7.1
+      pg-minify: 1.6.2
       postgres-array: 3.0.1
       postgres-interval: 3.0.0
       promise-deferred: 2.0.3
