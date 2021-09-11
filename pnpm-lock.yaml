@@ -19,7 +19,7 @@ specifiers:
   fastify: ^3.20.1
   fastify-plugin: ^3.0.0
   husky: 7.0.2
-  prettier: 2.3.2
+  prettier: 2.4.0
   semantic-release: 17.4.7
   slonik: ^24.0.0
   tap: 15.0.9
@@ -47,9 +47,9 @@ devDependencies:
   eslint: 7.32.0
   eslint-config-galex: 2.16.11_eslint@7.32.0
   eslint-config-prettier: 8.3.0_eslint@7.32.0
-  eslint-plugin-prettier: 4.0.0_5a48a349ffec60f5257b5f148f5199c3
+  eslint-plugin-prettier: 4.0.0_5559632aa3c77deec3ae5c2ea6ed0f36
   husky: 7.0.2
-  prettier: 2.3.2
+  prettier: 2.4.0
   semantic-release: 17.4.7
   tap: 15.0.9_typescript@4.3.5
   tslib: 2.3.1
@@ -2265,7 +2265,7 @@ packages:
       language-tags: 1.0.5
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_5a48a349ffec60f5257b5f148f5199c3:
+  /eslint-plugin-prettier/4.0.0_5559632aa3c77deec3ae5c2ea6ed0f36:
     resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -2278,7 +2278,7 @@ packages:
     dependencies:
       eslint: 7.32.0
       eslint-config-prettier: 8.3.0_eslint@7.32.0
-      prettier: 2.3.2
+      prettier: 2.4.0
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -4597,8 +4597,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.3.2:
-    resolution: {integrity: sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==}
+  /prettier/2.4.0:
+    resolution: {integrity: sha512-DsEPLY1dE5HF3BxCRBmD4uYZ+5DCbvatnolqTqcxEgKVZnL2kUfyu7b8pPQ5+hTBkdhU9SLUmK0/pHb07RE4WQ==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
