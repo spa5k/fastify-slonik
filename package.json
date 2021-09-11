@@ -61,7 +61,7 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "peerDependencies": {
-    "fastify": "3.20.2",
+    "fastify": "3.21.0",
     "slonik": "24.0.1"
   },
   "repository": {
