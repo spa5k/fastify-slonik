@@ -24,7 +24,7 @@ specifiers:
   slonik: ^24.0.0
   tap: 15.0.9
   tslib: 2.3.1
-  tsup: 4.14.0
+  tsup: 5.1.0
   typescript: 4.3.5
 
 dependencies:
@@ -53,7 +53,7 @@ devDependencies:
   semantic-release: 17.4.7
   tap: 15.0.9_typescript@4.3.5
   tslib: 2.3.1
-  tsup: 4.14.0_typescript@4.3.5
+  tsup: 5.1.0_typescript@4.3.5
   typescript: 4.3.5
 
 packages:
@@ -2270,8 +2270,8 @@ packages:
   /es6-error/4.1.1:
     resolution: {integrity: sha512-Um/+FxMr9CISWh0bi5Zv0iOD+4cFh5qLeks1qhAopKVAJw3drgKbKySikp7wGhDL0HPeaja0P5ULZrxLkniUVg==}
 
-  /esbuild/0.12.17:
-    resolution: {integrity: sha512-GshKJyVYUnlSXIZj/NheC2O0Kblh42CS7P1wJyTbbIHevTG4jYMS9NNw8EOd8dDWD0dzydYHS01MpZoUcQXB4g==}
+  /esbuild/0.12.28:
+    resolution: {integrity: sha512-pZ0FrWZXlvQOATlp14lRSk1N9GkeJ3vLIwOcUoo3ICQn9WNR4rWoNi81pbn6sC1iYUy7QPqNzI3+AEzokwyVcA==}
     hasBin: true
     requiresBuild: true
     dev: true
@@ -5577,8 +5577,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /sucrase/3.20.0:
-    resolution: {integrity: sha512-Rsp+BX7DRuCleJvBAHN7gQ3ddk7U0rJev19XlIBF6dAq9vX4Tr5mHk4E7+ig/I7BM3DLYotCmm20lfBElT2XtQ==}
+  /sucrase/3.20.1:
+    resolution: {integrity: sha512-BIG59HaJOxNct9Va6KvT5yzBA/rcMGetzvZyTx0ZdCcspIbpJTPS64zuAfYlJuOj+3WaI5JOdA+F0bJQQi8ZiQ==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
@@ -5858,8 +5858,8 @@ packages:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
     dev: true
 
-  /tsup/4.14.0_typescript@4.3.5:
-    resolution: {integrity: sha512-77rWdzhikTP9mQ34XMRzK83tw++LF6f4ox/HNERlgesB7g6g5VQ1iJlueG9O0P9HAZGVKavUwyoZv0+322p6rg==}
+  /tsup/5.1.0_typescript@4.3.5:
+    resolution: {integrity: sha512-shox7rIKPneySkC6CI7py1N1Buqlp++sofTztZxGAESP4od2WrPD/y0FwNo6+XaoXfuzVV6bDAwvCtDpc0bq1A==}
     hasBin: true
     peerDependencies:
       typescript: ^4.2.3
@@ -5871,14 +5871,14 @@ packages:
       chalk: 4.1.2
       chokidar: 3.5.2
       debug: 4.3.2
-      esbuild: 0.12.17
+      esbuild: 0.12.28
       execa: 5.1.1
       globby: 11.0.4
       joycon: 3.0.1
       postcss-load-config: 3.1.0
       resolve-from: 5.0.0
       rollup: 2.56.2
-      sucrase: 3.20.0
+      sucrase: 3.20.1
       tree-kill: 1.2.2
       typescript: 4.3.5
     transitivePeerDependencies:
