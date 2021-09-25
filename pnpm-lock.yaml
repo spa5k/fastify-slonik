@@ -24,7 +24,7 @@ specifiers:
   slonik: ^24.0.0
   tap: 15.0.10
   tslib: 2.3.1
-  tsup: 5.1.0
+  tsup: 5.2.0
   typescript: 4.3.5
 
 dependencies:
@@ -53,7 +53,7 @@ devDependencies:
   semantic-release: 18.0.0
   tap: 15.0.10_typescript@4.3.5
   tslib: 2.3.1
-  tsup: 5.1.0_typescript@4.3.5
+  tsup: 5.2.0_typescript@4.3.5
   typescript: 4.3.5
 
 packages:
@@ -2525,7 +2525,7 @@ packages:
       merge-stream: 2.0.0
       npm-run-path: 4.0.1
       onetime: 5.1.2
-      signal-exit: 3.0.3
+      signal-exit: 3.0.4
       strip-final-newline: 2.0.0
     dev: true
 
@@ -5694,8 +5694,8 @@ packages:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
     dev: true
 
-  /tsup/5.1.0_typescript@4.3.5:
-    resolution: {integrity: sha512-shox7rIKPneySkC6CI7py1N1Buqlp++sofTztZxGAESP4od2WrPD/y0FwNo6+XaoXfuzVV6bDAwvCtDpc0bq1A==}
+  /tsup/5.2.0_typescript@4.3.5:
+    resolution: {integrity: sha512-Im6TcLyjP3wfid1OdIRJw+7E4E5WAKvXi1GSz4V0qxBDblG14dPlnoxZGNuvfk/6X3DlhxgTbWbnyR+JRruYPA==}
     hasBin: true
     peerDependencies:
       typescript: ^4.2.3
