@@ -25,7 +25,7 @@ specifiers:
   tap: 15.0.10
   tslib: 2.3.1
   tsup: 5.2.1
-  typescript: 4.3.5
+  typescript: 4.4.3
 
 dependencies:
   fastify: 3.20.1
@@ -33,7 +33,7 @@ dependencies:
   slonik: 24.0.0
 
 devDependencies:
-  '@commitlint/cli': 13.2.0_typescript@4.3.5
+  '@commitlint/cli': 13.2.0_typescript@4.4.3
   '@commitlint/config-conventional': 13.2.0
   '@semantic-release/changelog': 6.0.0_semantic-release@18.0.0
   '@semantic-release/commit-analyzer': 9.0.1_semantic-release@18.0.0
@@ -51,10 +51,10 @@ devDependencies:
   husky: 7.0.2
   prettier: 2.4.1
   semantic-release: 18.0.0
-  tap: 15.0.10_typescript@4.3.5
+  tap: 15.0.10_typescript@4.4.3
   tslib: 2.3.1
-  tsup: 5.2.1_typescript@4.3.5
-  typescript: 4.3.5
+  tsup: 5.2.1_typescript@4.4.3
+  typescript: 4.4.3
 
 packages:
 
@@ -390,14 +390,14 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@commitlint/cli/13.2.0_typescript@4.3.5:
+  /@commitlint/cli/13.2.0_typescript@4.4.3:
     resolution: {integrity: sha512-RqG0cxxiwaL9OgQbA2ZEfZaVIRJmbtsZgnj5G07AjN7///s/40grSN4/kDl8YjUgvAZskPfJRoGGYNvHJ4zHWA==}
     engines: {node: '>=v12'}
     hasBin: true
     dependencies:
       '@commitlint/format': 13.2.0
       '@commitlint/lint': 13.2.0
-      '@commitlint/load': 13.2.0_typescript@4.3.5
+      '@commitlint/load': 13.2.0_typescript@4.4.3
       '@commitlint/read': 13.2.0
       '@commitlint/types': 13.2.0
       lodash: 4.17.21
@@ -454,14 +454,14 @@ packages:
       '@commitlint/types': 13.2.0
     dev: true
 
-  /@commitlint/load/13.2.0_typescript@4.3.5:
+  /@commitlint/load/13.2.0_typescript@4.4.3:
     resolution: {integrity: sha512-Nhkv+hwWCCxWGjmE9jd1U8kfGGCkZVpwzlTtdKxpY+Aj2VCFg3BjY+qA81pMF3oAsIpxchSaZG5llb8kduVjYg==}
     engines: {node: '>=v12'}
     dependencies:
       '@commitlint/execute-rule': 13.2.0
       '@commitlint/resolve-extends': 13.2.0
       '@commitlint/types': 13.2.0
-      '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2_d7e37a937920a5f79299d305717794f0
+      '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2_e9677aae07926e7f535c02f0a1c9b8a5
       chalk: 4.1.2
       cosmiconfig: 7.0.0
       lodash: 4.17.21
@@ -534,7 +534,7 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@endemolshinegroup/cosmiconfig-typescript-loader/3.0.2_d7e37a937920a5f79299d305717794f0:
+  /@endemolshinegroup/cosmiconfig-typescript-loader/3.0.2_e9677aae07926e7f535c02f0a1c9b8a5:
     resolution: {integrity: sha512-QRVtqJuS1mcT56oHpVegkKBlgtWjXw/gHNWO3eL9oyB5Sc7HBoc2OLG/nYpVfT/Jejvo3NUrD0Udk7XgoyDKkA==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -543,7 +543,7 @@ packages:
       cosmiconfig: 7.0.0
       lodash.get: 4.4.2
       make-error: 1.3.6
-      ts-node: 9.1.1_typescript@4.3.5
+      ts-node: 9.1.1_typescript@4.4.3
       tslib: 2.3.1
     transitivePeerDependencies:
       - typescript
@@ -5542,7 +5542,7 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /tap/15.0.10_typescript@4.3.5:
+  /tap/15.0.10_typescript@4.4.3:
     resolution: {integrity: sha512-8aq4j+1JUOlXyffLX7ZJxhe9KAxV3s7PsdWAm3XwfoWc/OiFyAMcv4+T0/5/65gBxOVAPLpxH8ecfDkYTA2BCQ==}
     engines: {node: '>=10'}
     hasBin: true
@@ -5581,7 +5581,7 @@ packages:
       tap-parser: 10.1.0
       tap-yaml: 1.0.0
       tcompare: 5.0.6
-      typescript: 4.3.5
+      typescript: 4.4.3
       which: 2.0.2
     transitivePeerDependencies:
       - supports-color
@@ -5726,7 +5726,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /ts-node/9.1.1_typescript@4.3.5:
+  /ts-node/9.1.1_typescript@4.4.3:
     resolution: {integrity: sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==}
     engines: {node: '>=10.0.0'}
     hasBin: true
@@ -5738,7 +5738,7 @@ packages:
       diff: 4.0.2
       make-error: 1.3.6
       source-map-support: 0.5.19
-      typescript: 4.3.5
+      typescript: 4.4.3
       yn: 3.1.1
     dev: true
 
@@ -5759,7 +5759,7 @@ packages:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
     dev: true
 
-  /tsup/5.2.1_typescript@4.3.5:
+  /tsup/5.2.1_typescript@4.4.3:
     resolution: {integrity: sha512-eQmRfKoHIiTFg38Dh2MARCx3J0+P+wbwB5iSHcXTwsnVR9csGLpln5qqBjdgyAGV1VTbOmyU37veCi2eA+wuqA==}
     hasBin: true
     peerDependencies:
@@ -5781,7 +5781,7 @@ packages:
       rollup: 2.56.2
       sucrase: 3.20.1
       tree-kill: 1.2.2
-      typescript: 4.3.5
+      typescript: 4.4.3
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -5852,12 +5852,6 @@ packages:
   /typedarray/0.0.6:
     resolution: {integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=}
     dev: false
-
-  /typescript/4.3.5:
-    resolution: {integrity: sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: true
 
   /typescript/4.4.3:
     resolution: {integrity: sha512-4xfscpisVgqqDfPaJo5vkd+Qd/ItkoagnHpufr+i2QCHBsNYp+G7UAoyFl8aPtx879u38wPV65rZ8qbGZijalA==}
