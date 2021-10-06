@@ -1,7 +1,7 @@
 {
   "extends": ["config:base"],
-  "schedule": ["every weekend"],
+  "schedule": ["every month"],
   "automerge": true,
   "automergeType": "pr",
-  "baseBranches": ["dev"]
+  "baseBranches": ["next"]
 }

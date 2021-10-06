@@ -66,7 +66,18 @@ fastify.get('/users', async function (request, reply) {
 
 #### Decorator
 
-This plugin decorates fastify with `slonik` exposing `connect`, `pool`, `query`, `transaction` and `exists`.
+This plugin decorates fastify with `slonik` exposing `connect`, `pool`, and `query`.
+`Transaction`, `exists` have been removed from direct access and can be easily used by doing like this.
+
+```ts
+this.pool.transaction(async (transactionConnection) => {
+  await transactionConnection.query(sql`INSERT INTO foo (bar) VALUES ('baz')`);
+  await transactionConnection.query(
+    sql`INSERT INTO qux (quux) VALUES ('quuz')`
+  );
+});
+```
+
 View [Slonik API](https://github.com/gajus/slonik#slonik-usage-api) for details.
 
 ## Development and Testing

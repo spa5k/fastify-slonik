@@ -4,11 +4,11 @@ services:
     image: postgres
     container_name: fastify-slonik
     environment:
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
     ports:
-      - ${DB_PORT}:${DB_PORT}
+      - 5432:5432
     networks:
       docker_net:
         ipv4_address: 172.22.0.100

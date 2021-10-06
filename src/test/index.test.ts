@@ -3,7 +3,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { config } from "dotenv";
 import fastify from "fastify";
 import type { sql } from "slonik";
@@ -31,7 +30,6 @@ const main = async () => {
     await test("Namespace should exist:", async (tap) => {
       const app = fastify();
 
-      // @ts-expect-error
       tap.teardown(() => app.close());
 
       await app.register(fastifySlonik, {
@@ -43,13 +41,11 @@ const main = async () => {
       tap.ok(app.slonik.pool);
       tap.ok(app.slonik.connect);
       tap.ok(app.slonik.query);
-      tap.ok(app.slonik.transaction);
-      tap.ok(app.slonik.exists);
       tap.ok(app.hasDecorator("sql"), "has sql decorator");
     });
   } catch (error) {
     console.log("Namespace should exist failed");
-    throw new Error(error);
+    throw new Error(error as string);
   }
 
   try {
@@ -65,7 +61,7 @@ const main = async () => {
         WHERE
           username=${testName};
       `;
-        await app.slonik.transaction(removeUser);
+        await app.slonik.query(removeUser);
         await app.close();
       });
 
@@ -82,45 +78,15 @@ const main = async () => {
         } = queryResult;
         t0.equal(one, 1);
       });
-
-      await t.test("should be able to make a transaction", async (t1) => {
-        const queryString = app.sql`
-        INSERT INTO
-          users(username)
-        VALUES
-          (${testName})
-        RETURNING
-          *;
-      `;
-        const queryResult = await app.slonik.transaction(queryString);
-        const {
-          rows: [{ username }],
-        } = queryResult;
-        t1.equal(username, testName);
-      });
-
-      await t.test("should be able to make a exists query", async (t2) => {
-        const queryString = app.sql`
-        SELECT
-          1
-        FROM
-          users
-        WHERE
-          username=${testName}
-      `;
-        const queryResult = await app.slonik.exists(queryString);
-        t2.ok(queryResult);
-      });
     });
   } catch (error) {
     console.log("When fastify.slonik root namespace is used: Failed");
-    throw new Error(error);
+    throw new Error(error as string);
   }
 
   try {
     await test("should throw error when pg fails to perform an operation", async (t) => {
       const app = fastify();
-      // @ts-expect-error
       t.teardown(() => app.close());
 
       await app.register(fastifySlonik, {
@@ -136,7 +102,7 @@ const main = async () => {
       try {
         const queryResult = await app.slonik.query(queryString);
         t.fail(queryResult);
-      } catch (error) {
+      } catch (error: any) {
         t.ok(error);
         if (
           error.message === `FATAL:  database "${BAD_DB_NAME}" does not exist`
@@ -149,11 +115,10 @@ const main = async () => {
     console.log(
       "should throw error when pg fails to perform an operation: Failed"
     );
-    throw new Error(error);
+    throw new Error(error as string);
   }
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await
 main().catch((error) => {
   console.log(error);
 });

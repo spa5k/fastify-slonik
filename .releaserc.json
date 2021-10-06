@@ -14,7 +14,7 @@
       "prerelease": true
     }
   ],
-  "repositoryUrl": "https://github.com/Unbuttun/fastify-slonik",
+  "repositoryUrl": "https://github.com/spa5k/fastify-slonik",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
