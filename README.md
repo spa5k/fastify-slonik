@@ -72,8 +72,10 @@ This plugin decorates fastify with `slonik` exposing `connect`, `pool`, and `que
 ```ts
 this.slonik.transaction(async (transactionConnection) => {
   await transactionConnection.query(sql`INSERT INTO foo (bar) VALUES ('baz')`);
-  await transactionConnection.query(sql`INSERT INTO qux (quux) VALUES ('quuz')`);
-})
+  await transactionConnection.query(
+    sql`INSERT INTO qux (quux) VALUES ('quuz')`
+  );
+});
 ```
 
 View [Slonik API](https://github.com/gajus/slonik#slonik-usage-api) for details.
