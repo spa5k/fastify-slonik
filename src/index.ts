@@ -1,9 +1,6 @@
 import type { FastifyInstance } from "fastify";
 import fastifyPlugin from "fastify-plugin";
-import type {
-  DatabasePoolType,
-  TaggedTemplateLiteralInvocationType,
-} from "slonik";
+import type { DatabasePoolType } from "slonik";
 import { createPool, sql } from "slonik";
 
 type SlonikOptions = {
@@ -20,7 +17,7 @@ const fastifySlonik = async (
     pool = createPool(connectionString);
   } catch (error) {
     fastify.log.error("🔴 Error happened while connecting to Postgres DB");
-    throw new Error(error);
+    throw new Error(error as string);
   }
 
   try {
@@ -31,20 +28,10 @@ const fastifySlonik = async (
     fastify.log.error("🔴 Error happened while connecting to Postgres DB");
   }
 
-  async function transaction(
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    connection: TaggedTemplateLiteralInvocationType<unknown>
-  ) {
-    return pool.query(connection);
-  }
-
   const db = {
     connect: pool.connect.bind(pool),
     pool,
     query: pool.query.bind(pool),
-    transaction: transaction.bind(pool),
-    exists: pool.exists.bind(pool),
   };
 
   fastify.decorate("slonik", db);
