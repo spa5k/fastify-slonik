@@ -11,7 +11,7 @@
   "dependencies": {
     "fastify": "^3.22.0",
     "fastify-plugin": "^3.0.0",
-    "slonik": "^24.1.1"
+    "slonik": "^25.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "13.2.1",
@@ -62,7 +62,7 @@
   "module": "dist/index.esm.js",
   "peerDependencies": {
     "fastify": "3.22.1",
-    "slonik": "24.1.1"
+    "slonik": "25.0.0"
   },
   "repository": {
     "url": "https://github.com/spa5k/fastify-slonik",
