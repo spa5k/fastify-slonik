@@ -18,7 +18,7 @@ specifiers:
   eslint-plugin-prettier: 4.0.0
   fastify: ^3.22.0
   fastify-plugin: ^3.0.0
-  husky: 7.0.2
+  husky: 7.0.4
   prettier: 2.4.1
   semantic-release: 18.0.0
   slonik: ^25.0.0
@@ -48,7 +48,7 @@ devDependencies:
   eslint-config-galex: 2.16.13_eslint@7.32.0
   eslint-config-prettier: 8.3.0_eslint@7.32.0
   eslint-plugin-prettier: 4.0.0_6e975bd57c7acf028c1a9ddbbf60c898
-  husky: 7.0.2
+  husky: 7.0.4
   prettier: 2.4.1
   semantic-release: 18.0.0
   tap: 15.0.10_typescript@4.4.3
@@ -3148,8 +3148,8 @@ packages:
     resolution: {integrity: sha1-3QLqYIG9BWjcXQcxhEY5V7qe+ao=}
     dev: true
 
-  /husky/7.0.2:
-    resolution: {integrity: sha512-8yKEWNX4z2YsofXAMT7KvA1g8p+GxtB1ffV8XtpAEGuXNAbCV5wdNKH+qTpw8SM9fh4aMPDR+yQuKfgnreyZlg==}
+  /husky/7.0.4:
+    resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
     engines: {node: '>=12'}
     hasBin: true
     dev: true
