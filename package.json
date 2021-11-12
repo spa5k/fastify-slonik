@@ -62,7 +62,7 @@
   "module": "dist/index.esm.js",
   "peerDependencies": {
     "fastify": "3.22.1",
-    "slonik": "24.1.1"
+    "slonik": "24.2.0"
   },
   "repository": {
     "url": "https://github.com/spa5k/fastify-slonik",
