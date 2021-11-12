@@ -21,7 +21,7 @@ specifiers:
   husky: 7.0.2
   prettier: 2.4.1
   semantic-release: 18.0.0
-  slonik: ^24.1.1
+  slonik: ^25.0.0
   tap: 15.0.10
   tslib: 2.3.1
   tsup: 5.3.0
@@ -30,7 +30,7 @@ specifiers:
 dependencies:
   fastify: 3.22.0
   fastify-plugin: 3.0.0
-  slonik: 24.1.1
+  slonik: 25.0.0
 
 devDependencies:
   '@commitlint/cli': 13.2.1
@@ -5241,8 +5241,8 @@ packages:
       is-fullwidth-code-point: 3.0.0
     dev: true
 
-  /slonik/24.1.1:
-    resolution: {integrity: sha512-Bmq9KeSyCXikJ7AoZbNBLZvQ5o9HhTbR1la2VV2ycFM3ODbcRIV8sZzYOHXGNoxAuUhhnc9EIYFMabkL3OFRyg==}
+  /slonik/25.0.0:
+    resolution: {integrity: sha512-9zTk2Zre13BbFGnGNQt6eoE4o9FDHz/EBdQFwEhzP/GuLOsDH9cyf/Nl+x9IMTmCpKYbUsrZbMGGP3QG2By3uA==}
     engines: {node: '>=10.0'}
     dependencies:
       concat-stream: 2.0.0
