@@ -24,7 +24,7 @@ specifiers:
   slonik: ^25.0.0
   tap: 15.0.10
   tslib: 2.3.1
-  tsup: 5.7.0
+  tsup: 5.7.1
   typescript: 4.4.4
 
 dependencies:
@@ -53,7 +53,7 @@ devDependencies:
   semantic-release: 18.0.0
   tap: 15.0.10_typescript@4.4.4
   tslib: 2.3.1
-  tsup: 5.7.0_typescript@4.4.4
+  tsup: 5.7.1_typescript@4.4.4
   typescript: 4.4.4
 
 packages:
@@ -1738,7 +1738,7 @@ packages:
       braces: 3.0.2
       glob-parent: 5.1.2
       is-binary-path: 2.1.0
-      is-glob: 4.0.1
+      is-glob: 4.0.3
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
@@ -3061,7 +3061,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       cross-spawn: 7.0.3
-      signal-exit: 3.0.3
+      signal-exit: 3.0.5
     dev: true
 
   /forever-agent/0.6.1:
@@ -4473,7 +4473,7 @@ packages:
       process-on-spawn: 1.0.0
       resolve-from: 5.0.0
       rimraf: 3.0.2
-      signal-exit: 3.0.3
+      signal-exit: 3.0.5
       spawn-wrap: 2.0.0
       test-exclude: 6.0.0
       yargs: 15.4.1
@@ -6035,8 +6035,8 @@ packages:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
     dev: true
 
-  /tsup/5.7.0_typescript@4.4.4:
-    resolution: {integrity: sha512-Rt83NU4t3e0I2WyubR3doAAl/aijzNYVgWB8cZxem/6MfoutrOFssm6L8eMVIGvPPOYsDDVcAvXLwn+CUgeRAQ==}
+  /tsup/5.7.1_typescript@4.4.4:
+    resolution: {integrity: sha512-ZRhyJE2QoVKyCKz6i6wh/4LIpD9xpQ1J4JIY6ZupxxLB1aQfVl7N16Ur9+ZjqknPt/jRn/wnV/OnypuRP0MgBQ==}
     hasBin: true
     peerDependencies:
       typescript: ^4.2.3
