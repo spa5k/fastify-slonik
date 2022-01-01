@@ -1,18 +1,15 @@
 import type { FastifyInstance } from "fastify";
 import fastifyPlugin from "fastify-plugin";
-import type { DatabasePoolType } from "slonik";
+import type { DatabasePool } from "slonik";
 import { createPool, sql } from "slonik";
 
 type SlonikOptions = {
   connectionString: string;
 };
 
-const fastifySlonik = async (
-  fastify: FastifyInstance,
-  options: SlonikOptions
-) => {
+const plugin = async (fastify: FastifyInstance, options: SlonikOptions) => {
   const { connectionString } = options;
-  let pool: DatabasePoolType;
+  let pool: DatabasePool;
   try {
     pool = createPool(connectionString);
   } catch (error) {
@@ -38,8 +35,7 @@ const fastifySlonik = async (
   fastify.decorate("sql", sql);
 };
 
-// eslint-disable-next-line import/no-default-export
-export default fastifyPlugin(fastifySlonik, {
+export const fastifySlonik = fastifyPlugin(plugin, {
   fastify: "3.x",
   name: "fastify-slonik",
 });

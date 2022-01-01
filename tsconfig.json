@@ -2,7 +2,7 @@
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "compilerOptions": {
     "module": "CommonJS",
-    "lib": ["esnext", "ES2015"],
+    "lib": ["esnext", "ES2017"],
     "importHelpers": true,
     "allowJs": true,
     // output .d.ts declaration files for consumers
@@ -10,7 +10,7 @@
     "resolveJsonModule": true,
     // output .js.map sourcemap files for consumers
     "sourceMap": true,
-    "outDir": "/builds",
+    "outDir": "./dist",
     // match output dir to input dir. e.g. dist/index instead of dist/src/index
     "rootDir": ".",
     // stricter type-checking for stronger correctness. Recommended by TS
