@@ -110,11 +110,9 @@ $ yarn test
    ```
 3. Create .env `cp .env.example .env` and update environment variables accordingly
 
-
 ## License
 
 Licensed under [MIT](./LICENSE).
-
 
 ## References
 

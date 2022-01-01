@@ -8,7 +8,7 @@ export const tsup: Options = {
   clean: true,
   dts: true,
   format: ["cjs", "esm"],
-  minify: false,
+  minify: true,
   bundle: true,
   watch: env === "development",
   skipNodeModulesBundle: true,
