@@ -6,4 +6,4 @@ dist/index.test.d.ts
 node_modules
 CHANGELOG.md
 LICENSE
-./dist/test/**
+dist/test/*
