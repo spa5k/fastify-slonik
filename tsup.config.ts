@@ -13,4 +13,5 @@ export const tsup: Options = {
   watch: env === "development",
   skipNodeModulesBundle: true,
   entryPoints: ["src/index.ts", "src/test/index.test.ts"],
+  target: "node14",
 };
