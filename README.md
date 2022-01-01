@@ -2,7 +2,9 @@
 
 A [Fastify](https://www.fastify.io/) plugin that uses the PostgreSQL client, [Slonik](https://www.npmjs.com/package/slonik). Slonik abstracts repeating code patterns, protects against unsafe connection handling and value interpolation, and provides a rich debugging experience.
 
-![npm](https://img.shields.io/npm/v/fastify-slonik?style=for-the-badge)
+[![NPM downloads](https://img.shields.io/npm/dm/fastify-slonik.svg?style=for-the-badge)](https://www.npmjs.com/package/fastify-slonik)
+[![npm](https://img.shields.io/npm/v/fastify-slonik?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/fastify-slonik)
+![node-current](https://img.shields.io/badge/Node-%3E=14-success?style=for-the-badge&logo=node)
 
 ## Usage
 
@@ -24,13 +26,14 @@ npm i fastify-slonik
 
 ```js
 // index.js
-const fastifySlonik = require("fastify-slonik");
+const plugin = require("fastify-slonik");
+const { fastifySlonik } = plugin;
 ```
 
 or
 
 ```js
-import fastifySlonik from "fastify-slonik";
+import { fastifySlonik } from "fastify-slonik";
 ```
 
 ### Register the Plugin
@@ -82,7 +85,7 @@ View [Slonik API](https://github.com/gajus/slonik#slonik-usage-api) for details.
 
 ## Development and Testing
 
-[Tap](https://node-tap.org/) is used for testing. Use `npm test` command to run tests.
+[Tap](https://node-tap.org/) is used for testing. Use `pnpm test` command to run tests.
 
 ### Docker approach
 

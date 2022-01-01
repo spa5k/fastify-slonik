@@ -7,7 +7,7 @@ import { config } from "dotenv";
 import fastify from "fastify";
 import type { sql } from "slonik";
 import { test } from "tap";
-import fastifySlonik from "..";
+import { fastifySlonik } from "..";
 
 config();
 
