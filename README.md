@@ -24,16 +24,24 @@ npm i fastify-slonik
 
 ### Import the Plugin
 
+Both default export and named export option is available.
+
 ```js
 // index.js
-const plugin = require("fastify-slonik");
-const { fastifySlonik } = plugin;
+const { fastifySlonik } = require("fastify-slonik");
+
+// Or
+const fastifySloinik = require("fastify-slonik");
 ```
 
 or
 
 ```js
 import { fastifySlonik } from "fastify-slonik";
+
+// or 
+
+import fastifySlonik from "fastify-slonik";
 ```
 
 ### Register the Plugin
@@ -59,13 +67,7 @@ Use it the way you want.
 // setup test route
 // The decorated Fastify server is bound to this in route route handlers:
 fastify.get('/users', async function (this, request, reply) {
-  const { params: { id: userId } } = request
-
-  const queryText = this.sql`
-    SELECT * FROM users
-    WHERE user_id = ${userId}
-  `
-
+  const queryText = sql`SELECT * FROM users WHERE user_id = 1`
   const user = await this.slonik.query(queryText)
 
   reply.send(user)
@@ -76,15 +78,10 @@ fastify.get('/users', async function (this, request, reply) {
 
 ```ts
 fastify.get('/users', async function (request, reply) {
-  const { params: { id: userId }, sql, slonik } = request
-
-  const queryText = sql`
-    SELECT * FROM users
-    WHERE user_id = ${userId}
-  `
-
+  const { sql, slonik } = request
+  const queryText = sql`SELECT * FROM users WHERE user_id = 1`
+ 
   const user = await slonik.query(queryText)
-
   reply.send(user)
 }
 ```
@@ -123,7 +120,3 @@ $ yarn test
 ## License
 
 Licensed under [MIT](./LICENSE).
-
-## References
-
-[@autotelic/fastify-slonik](https://github.com/autotelic/fastify-slonik)
