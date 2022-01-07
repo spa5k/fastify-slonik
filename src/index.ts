@@ -57,10 +57,23 @@ const plugin = async (fastify: FastifyInstance, options: SlonikOptions) => {
     query: pool.query.bind(pool),
   };
 
-  fastify.decorate("slonik", db);
-  fastify.decorate("sql", sql);
-  fastify.decorateRequest("slonik", db);
-  fastify.decorateRequest("sql", sql);
+  if (!fastify.hasDecorator("slonik") && !fastify.hasDecorator("sql")) {
+    fastify.decorate("slonik", db);
+    fastify.decorate("sql", sql);
+  }
+
+  if (
+    !fastify.hasRequestDecorator("slonik") &&
+    !fastify.hasRequestDecorator("sql")
+  ) {
+    fastify.decorateRequest("slonik", null);
+    fastify.decorateRequest("sql", null);
+
+    fastify.addHook("onRequest", async (req) => {
+      req.slonik = db;
+      req.sql = sql;
+    });
+  }
 };
 
 export const fastifySlonik = fastifyPlugin(plugin, {

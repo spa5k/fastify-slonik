@@ -42,15 +42,16 @@ import { fastifySlonik } from "fastify-slonik";
 // register fastify-slonik
 try {
   await app.register(fastifySlonik, {
-      connectionString: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
   });
-} catch(err) {
-  console.log("🔴 Failed to connect, check your Connection string")
+} catch (err) {
+  console.log("🔴 Failed to connect, check your Connection string");
   throw new Error(err);
 }
 ```
 
 ### Using the plugin through decorators
+
 FastifyInstance (this) and FastifyRequest(request) have been decorated with slonik and sql.
 Use it the way you want.
 
@@ -87,6 +88,7 @@ fastify.get('/users', async function (request, reply) {
   reply.send(user)
 }
 ```
+
 [Docs for This](https://www.fastify.io/docs/latest/Reference/Decorators/#decoratename-value-dependencies)
 
 View [Slonik API](https://github.com/gajus/slonik#slonik-usage-api) for details.
