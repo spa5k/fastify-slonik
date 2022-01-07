@@ -32,6 +32,9 @@ const main = async () => {
       tap.ok(app.slonik.connect);
       tap.ok(app.slonik.query);
       tap.ok(app.hasDecorator("sql"), "has sql decorator");
+      tap.ok(app.sql);
+      tap.ok(app.hasRequestDecorator("sql"), "has sql decorator");
+      tap.ok(app.hasRequestDecorator("slonik"), "has slonik decorator");
     });
   } catch (error) {
     console.log("Namespace should exist failed");
