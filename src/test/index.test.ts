@@ -1,11 +1,8 @@
-/* eslint-disable import/order */
 /* eslint-disable promise/prefer-await-to-callbacks */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { config } from "dotenv";
 import fastify from "fastify";
-import type { sql } from "slonik";
 import { test } from "tap";
 import { fastifySlonik } from "..";
 
@@ -17,13 +14,6 @@ const connectionStringBadDbName = DATABASE_URL.replace(
   /\/[^/]+$/u,
   `/${BAD_DB_NAME}`
 );
-
-declare module "fastify" {
-  interface FastifyInstance {
-    slonik: any;
-    sql: typeof sql;
-  }
-}
 
 const main = async () => {
   try {
@@ -42,6 +32,9 @@ const main = async () => {
       tap.ok(app.slonik.connect);
       tap.ok(app.slonik.query);
       tap.ok(app.hasDecorator("sql"), "has sql decorator");
+      tap.ok(app.sql);
+      tap.ok(app.hasRequestDecorator("sql"), "has sql decorator");
+      tap.ok(app.hasRequestDecorator("slonik"), "has slonik decorator");
     });
   } catch (error) {
     console.log("Namespace should exist failed");
@@ -101,6 +94,7 @@ const main = async () => {
 
       try {
         const queryResult = await app.slonik.query(queryString);
+        // @ts-expect-error Query result failed
         t.fail(queryResult);
       } catch (error: any) {
         t.ok(error);

@@ -9,6 +9,7 @@
     "test",
     "deps",
     "lint",
-    "features"
+    "features",
+    "types"
   ]
 }
