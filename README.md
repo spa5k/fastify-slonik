@@ -38,20 +38,26 @@ import { fastifySlonik } from "fastify-slonik";
 
 ### Register the Plugin
 
-```js
+```ts
 // register fastify-slonik
 try {
-  fastify.register(fastifySlonik, {
-  connectionString: process.env.DATABASE_URL,
-  })
+  await app.register(fastifySlonik, {
+      connectionString: process.env.DATABASE_URL
+  });
 } catch(err) {
   console.log("🔴 Failed to connect, check your Connection string")
   throw new Error(err);
 }
+```
 
+### Using the plugin through decorators
+FastifyInstance (this) and FastifyRequest(request) have been decorated with slonik and sql.
+Use it the way you want.
 
+```ts
 // setup test route
-fastify.get('/users', async function (request, reply) {
+// The decorated Fastify server is bound to this in route route handlers:
+fastify.get('/users', async function (this, request, reply) {
   const { params: { id: userId } } = request
 
   const queryText = this.sql`
@@ -65,21 +71,23 @@ fastify.get('/users', async function (request, reply) {
 }
 ```
 
-## API
-
-#### Decorator
-
-This plugin decorates fastify with `slonik` exposing `connect`, `pool`, and `query`.
-`Transaction`, `exists` have been removed from direct access and can be easily used by doing like this.
+### Another way to access the Slonik and SQL decorator is through the request object-
 
 ```ts
-this.pool.transaction(async (transactionConnection) => {
-  await transactionConnection.query(sql`INSERT INTO foo (bar) VALUES ('baz')`);
-  await transactionConnection.query(
-    sql`INSERT INTO qux (quux) VALUES ('quuz')`
-  );
-});
+fastify.get('/users', async function (request, reply) {
+  const { params: { id: userId }, sql, slonik } = request
+
+  const queryText = sql`
+    SELECT * FROM users
+    WHERE user_id = ${userId}
+  `
+
+  const user = await slonik.query(queryText)
+
+  reply.send(user)
+}
 ```
+[Docs for This](https://www.fastify.io/docs/latest/Reference/Decorators/#decoratename-value-dependencies)
 
 View [Slonik API](https://github.com/gajus/slonik#slonik-usage-api) for details.
 

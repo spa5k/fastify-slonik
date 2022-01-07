@@ -3,7 +3,7 @@ import type { Options } from "tsup";
 const env = process.env.NODE_ENV;
 
 export const tsup: Options = {
-  splitting: true,
+  splitting: false,
   sourcemap: true,
   clean: true,
   dts: true,
