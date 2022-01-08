@@ -31,7 +31,7 @@ Both default export and named export option is available.
 const { fastifySlonik } = require("fastify-slonik");
 
 // Or
-const fastifySloinik = require("fastify-slonik");
+const fastifySlonik = require("fastify-slonik");
 ```
 
 or
@@ -60,15 +60,16 @@ try {
 
 ### Using the plugin through decorators
 
-FastifyInstance (this) and FastifyRequest(request) have been decorated with slonik and sql.
+FastifyInstance (this) and FastifyRequest (request) have been decorated with slonik and sql.
 Use it the way you want.
 
 ```ts
 // setup test route
 // The decorated Fastify server is bound to this in route route handlers:
 fastify.get('/users', async function (this, request, reply) {
+  const { sql, slonik } = this;
   const queryText = sql`SELECT * FROM users WHERE user_id = 1`
-  const user = await this.slonik.query(queryText)
+  const user = await slonik.query(queryText)
 
   reply.send(user)
 }
