@@ -2,6 +2,8 @@
 
 A [Fastify](https://www.fastify.io/) plugin that uses the PostgreSQL client, [Slonik](https://www.npmjs.com/package/slonik). Slonik abstracts repeating code patterns, protects against unsafe connection handling and value interpolation, and provides a rich debugging experience.
 
+For fastify v4, use latest version, for fastify v3, use v1.x.
+
 [![NPM downloads](https://img.shields.io/npm/dm/fastify-slonik.svg?style=for-the-badge)](https://www.npmjs.com/package/fastify-slonik)
 [![npm](https://img.shields.io/npm/v/fastify-slonik?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/fastify-slonik)
 ![node-current](https://img.shields.io/badge/Node-%3E=14-success?style=for-the-badge&logo=node)
@@ -39,7 +41,7 @@ or
 ```js
 import { fastifySlonik } from "fastify-slonik";
 
-// or 
+// or
 
 import fastifySlonik from "fastify-slonik";
 ```
@@ -81,7 +83,7 @@ fastify.get('/users', async function (this, request, reply) {
 fastify.get('/users', async function (request, reply) {
   const { sql, slonik } = request
   const queryText = sql`SELECT * FROM users WHERE user_id = 1`
- 
+
   const user = await slonik.query(queryText)
   reply.send(user)
 }
