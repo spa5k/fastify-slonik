@@ -77,12 +77,12 @@ const plugin = async (fastify: FastifyInstance, options: SlonikOptions) => {
 };
 
 export const fastifySlonik = fastifyPlugin(plugin, {
-  fastify: "3.x",
+  fastify: "4.x",
   name: "fastify-slonik",
 });
 
 // eslint-disable-next-line import/no-default-export
 export default fastifyPlugin(plugin, {
-  fastify: "3.x",
+  fastify: "4.x",
   name: "fastify-slonik",
 });

@@ -2,7 +2,7 @@
 
 A [Fastify](https://www.fastify.io/) plugin that uses the PostgreSQL client, [Slonik](https://www.npmjs.com/package/slonik). Slonik abstracts repeating code patterns, protects against unsafe connection handling and value interpolation, and provides a rich debugging experience.
 
-For fastify v4, use latest version, for fastify v3, use v1.x.
+For fastify v4, use latest version, for fastify v3, use v1.4x.
 
 [![NPM downloads](https://img.shields.io/npm/dm/fastify-slonik.svg?style=for-the-badge)](https://www.npmjs.com/package/fastify-slonik)
 [![npm](https://img.shields.io/npm/v/fastify-slonik?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/fastify-slonik)
@@ -20,6 +20,12 @@ NPM
 
 ```sh
 npm i fastify-slonik
+```
+
+PNPM
+
+```sh
+pnpm i fastify-slonik
 ```
 
 ## Example:
