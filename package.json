@@ -1,55 +1,7 @@
 {
   "name": "fastify-slonik",
-  "description": "Fastify Slonik Plugin",
   "version": "1.6.0",
-  "author": "spa5k <unbuttun@gmail.com>",
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "dependencies": {
-    "fastify-plugin": "3.0.1"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "17.0.2",
-    "@commitlint/config-conventional": "17.0.2",
-    "@semantic-release/changelog": "6.0.1",
-    "@semantic-release/commit-analyzer": "9.0.2",
-    "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "8.0.4",
-    "@semantic-release/npm": "9.0.1",
-    "@semantic-release/release-notes-generator": "10.0.3",
-    "@types/node": "18.0.0",
-    "@types/tap": "15.0.7",
-    "dotenv": "16.0.1",
-    "eslint": "8.17.0",
-    "eslint-config-galex": "4.1.4",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "fastify": "4.0.3",
-    "husky": "8.0.1",
-    "prettier": "2.7.1",
-    "semantic-release": "19.0.3",
-    "slonik": "28.1.1",
-    "tap": "16.3.0",
-    "tslib": "2.4.0",
-    "tsup": "6.1.2",
-    "typescript": "4.7.3"
-  },
-  "engines": {
-    "node": ">=14"
-  },
-  "files": [
-    "dist"
-  ],
-  "homepage": "https://github.com/spa5k/fastify-slonik",
-  "husky": {
-    "hooks": {
-      "pre-commit": "pnpm lint",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
+  "description": "Fastify Slonik Plugin",
   "keywords": [
     "fastify",
     "fastify-plugin",
@@ -57,9 +9,70 @@
     "postgres",
     "slonik"
   ],
+  "homepage": "https://github.com/spa5k/fastify-slonik",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spa5k/fastify-slonik"
+  },
   "license": "MIT",
+  "author": "spa5k <unbuttun@gmail.com>",
+  "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": " tsup-node",
+    "build:dev": "tsup-node",
+    "format": "prettier --write .",
+    "lint": "eslint src --ext .ts",
+    "test": "pnpm build && tap -j1 -R classic dist/test/index.test.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "tap": {
+    "check-coverage": false
+  },
+  "dependencies": {
+    "fastify-plugin": "4.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
+    "@semantic-release/changelog": "6.0.1",
+    "@semantic-release/commit-analyzer": "9.0.2",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "8.0.5",
+    "@semantic-release/npm": "9.0.1",
+    "@semantic-release/release-notes-generator": "10.0.3",
+    "@types/node": "18.0.3",
+    "@types/tap": "15.0.7",
+    "dotenv": "16.0.1",
+    "eslint": "8.19.0",
+    "eslint-config-galex": "4.1.5",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "fastify": "4.2.1",
+    "husky": "8.0.1",
+    "prettier": "2.7.1",
+    "semantic-release": "19.0.3",
+    "slonik": "28.1.1",
+    "tap": "16.3.0",
+    "tslib": "2.4.0",
+    "tsup": "6.1.3",
+    "typescript": "4.7.4"
+  },
   "peerDependencies": {
     "fastify": "< 4.x",
     "slonik": "< 28.x"
@@ -72,20 +85,7 @@
       "optional": false
     }
   },
-  "repository": {
-    "url": "https://github.com/spa5k/fastify-slonik",
-    "type": "git"
-  },
-  "scripts": {
-    "build": " tsup-node",
-    "build:dev": "tsup-node",
-    "format": "prettier --write .",
-    "lint": "eslint src --ext .ts",
-    "test": "pnpm build && tap -j1 -R classic dist/test/index.test.js"
-  },
-  "tap": {
-    "check-coverage": false
-  },
-  "typings": "dist/index.d.ts",
-  "sideEffects": false
+  "engines": {
+    "node": ">=14"
+  }
 }
