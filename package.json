@@ -1,6 +1,6 @@
 {
   "name": "fastify-slonik",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Fastify Slonik Plugin",
   "keywords": [
     "fastify",
