@@ -61,8 +61,8 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "peerDependencies": {
-    "fastify": "< 3.x",
-    "slonik": "< 25.x"
+    "fastify": "< 4.x",
+    "slonik": "< 28.x"
   },
   "peerDependenciesMeta": {
     "fastify": {
