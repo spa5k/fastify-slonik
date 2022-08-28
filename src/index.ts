@@ -37,7 +37,7 @@ const plugin = async (fastify: FastifyInstance, options: SlonikOptions) => {
   const { connectionString } = options;
   let pool: DatabasePool;
   try {
-    pool = createPool(connectionString);
+    pool = await createPool(connectionString);
   } catch (error) {
     fastify.log.error("🔴 Error happened while connecting to Postgres DB");
     throw new Error(error as string);
