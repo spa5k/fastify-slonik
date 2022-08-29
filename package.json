@@ -28,7 +28,8 @@
     "build:dev": "tsup-node",
     "format": "prettier --write .",
     "lint": "eslint src --ext .ts",
-    "test": "pnpm build && tap -j1 -R classic dist/test/index.test.js"
+    "test": "pnpm build && tap -j1 -R classic dist/test/index.test.js",
+    "test:ts": "tap -j1 --ts -R classic src/test/index.test.ts"
   },
   "husky": {
     "hooks": {

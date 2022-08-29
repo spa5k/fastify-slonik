@@ -18,9 +18,9 @@ const connectionStringBadDbName = DATABASE_URL.replace(
 const main = async () => {
   try {
     await test("Namespace should exist:", async (tap) => {
-      const app = fastify();
+      const app = await fastify();
 
-      tap.teardown(() => app.close());
+      tap.teardown(async () => await app.close());
 
       await app.register(fastifySlonik, {
         connectionString: DATABASE_URL,
@@ -45,7 +45,7 @@ const main = async () => {
     await test("When fastify.slonik root namespace is used:", async (t) => {
       const testName = "foobar";
 
-      const app = fastify();
+      const app = await fastify();
 
       t.teardown(async () => {
         const removeUser = app.sql`
@@ -79,8 +79,8 @@ const main = async () => {
 
   try {
     await test("should throw error when pg fails to perform an operation", async (t) => {
-      const app = fastify();
-      t.teardown(() => app.close());
+      const app = await fastify();
+      t.teardown(async () => await app.close());
 
       await app.register(fastifySlonik, {
         connectionString: connectionStringBadDbName,
