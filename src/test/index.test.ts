@@ -82,17 +82,18 @@ const main = async () => {
       const app = await fastify();
       t.teardown(async () => await app.close());
 
-      await app.register(fastifySlonik, {
-        connectionString: connectionStringBadDbName,
-      });
-
-      await app.ready();
-
-      const queryString = app.sql`
-      SELECT 1 as one
-    `;
-
       try {
+        // Below line fails when such db name does not exist in slonik v30.0.0 and above
+        await app.register(fastifySlonik, {
+          connectionString: connectionStringBadDbName,
+        });
+
+        await app.ready();
+
+        const queryString = app.sql`
+        SELECT 1 as one
+        `;
+
         const queryResult = await app.slonik.query(queryString);
         // @ts-expect-error Query result failed
         t.fail(queryResult);
