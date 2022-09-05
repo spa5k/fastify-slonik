@@ -20,7 +20,7 @@ const main = async () => {
     await test("Namespace should exist:", async (tap) => {
       const app = await fastify();
 
-      tap.teardown(async () => await app.close());
+      tap.teardown(() => app.close());
 
       await app.register(fastifySlonik, {
         connectionString: DATABASE_URL,
@@ -80,7 +80,7 @@ const main = async () => {
   try {
     await test("should throw error when pg fails to perform an operation", async (t) => {
       const app = await fastify();
-      t.teardown(async () => await app.close());
+      t.teardown(() => app.close());
 
       try {
         // Below line fails when such db name does not exist in slonik v30.0.0 and above

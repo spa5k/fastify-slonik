@@ -91,12 +91,7 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-
-# Production files
 dist
-
-# Remove test file when release
-dist/test
 
 # Gatsby files
 .cache/
