@@ -18,7 +18,7 @@ const connectionStringBadDbName = DATABASE_URL.replace(
 const main = async () => {
   try {
     await test("Namespace should exist:", async (tap) => {
-      const app = fastify();
+      const app = await fastify();
 
       tap.teardown(() => app.close());
 
@@ -45,7 +45,7 @@ const main = async () => {
     await test("When fastify.slonik root namespace is used:", async (t) => {
       const testName = "foobar";
 
-      const app = fastify();
+      const app = await fastify();
 
       t.teardown(async () => {
         const removeUser = app.sql`
@@ -79,20 +79,21 @@ const main = async () => {
 
   try {
     await test("should throw error when pg fails to perform an operation", async (t) => {
-      const app = fastify();
+      const app = await fastify();
       t.teardown(() => app.close());
 
-      await app.register(fastifySlonik, {
-        connectionString: connectionStringBadDbName,
-      });
-
-      await app.ready();
-
-      const queryString = app.sql`
-      SELECT 1 as one
-    `;
-
       try {
+        // Below line fails when such db name does not exist in slonik v30.0.0 and above
+        await app.register(fastifySlonik, {
+          connectionString: connectionStringBadDbName,
+        });
+
+        await app.ready();
+
+        const queryString = app.sql`
+        SELECT 1 as one
+        `;
+
         const queryResult = await app.slonik.query(queryString);
         // @ts-expect-error Query result failed
         t.fail(queryResult);
