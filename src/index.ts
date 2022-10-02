@@ -21,15 +21,16 @@ declare module "fastify" {
       pool: DatabasePool;
       query: QueryFunction;
     };
-    sql: SqlTaggedTemplate;
+    sql: SqlTaggedTemplate<Record<never, never>>;
   }
+
   interface FastifyInstance {
     slonik: {
       connect: <T>(connectionRoutine: ConnectionRoutine<T>) => Promise<T>;
       pool: DatabasePool;
       query: QueryFunction;
     };
-    sql: SqlTaggedTemplate;
+    sql: SqlTaggedTemplate<Record<never, never>>;
   }
 }
 
