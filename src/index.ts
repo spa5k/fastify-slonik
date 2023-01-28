@@ -4,7 +4,7 @@ import fastifyPlugin from "fastify-plugin";
 import type { DatabasePool } from "slonik";
 import { createPool, sql } from "slonik";
 import type {
-  ClientConfiguration,
+  ClientConfigurationInput,
   ConnectionRoutine,
   QueryFunction,
   SqlTaggedTemplate,
@@ -12,7 +12,7 @@ import type {
 
 type SlonikOptions = {
   connectionString: string;
-  clientConfiguration?: ClientConfiguration
+  clientConfiguration?: ClientConfigurationInput
 };
 
 // using declaration merging, add your plugin props to the appropriate fastify interfaces
