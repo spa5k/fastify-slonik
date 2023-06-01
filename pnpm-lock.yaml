@@ -10,7 +10,7 @@ specifiers:
   '@semantic-release/npm': 9.0.1
   '@semantic-release/release-notes-generator': 10.0.3
   '@types/node': 18.7.23
-  '@types/tap': 15.0.7
+  '@types/tap': 15.0.8
   dotenv: 16.0.3
   eslint: 8.24.0
   eslint-config-galex: 4.2.2
@@ -40,7 +40,7 @@ devDependencies:
   '@semantic-release/npm': 9.0.1_semantic-release@19.0.5
   '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.5
   '@types/node': 18.7.23
-  '@types/tap': 15.0.7
+  '@types/tap': 15.0.8
   dotenv: 16.0.3
   eslint: 8.24.0
   eslint-config-galex: 4.2.2_eslint@8.24.0
@@ -1166,8 +1166,8 @@ packages:
     resolution: {integrity: sha512-xoDlM2S4ortawSWORYqsdU+2rxdh4LRW9ytc3zmT37RIKQh6IHyKwwtKhKis9ah8ol07DCkZxPt8BBvPjC6v4g==}
     dev: true
 
-  /@types/tap/15.0.7:
-    resolution: {integrity: sha512-TTMajw4gxQfFgYbhXhy/Tb2OiNcwS+4oP/9yp1/GdU0pFJo3wtnkYhRgmQy39ksh+rnoa0VrPHJ4Tuv2cLNQ5A==}
+  /@types/tap/15.0.8:
+    resolution: {integrity: sha512-ZfeoiZlLIaFi4t6wccwbTEicrHREkP0bOq8dZVi/nWvG5F8O7LlS2cSUZBiOW/D4cgWS/p2uhM3lJoyzFAl80w==}
     dependencies:
       '@types/node': 18.7.23
     dev: true
