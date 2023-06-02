@@ -68,7 +68,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "fastify": "4.7.0",
-    "husky": "8.0.1",
+    "husky": "8.0.3",
     "prettier": "2.7.1",
     "semantic-release": "19.0.5",
     "slonik": "31.2.4",
