@@ -9,7 +9,7 @@ specifiers:
   '@semantic-release/github': 8.1.0
   '@semantic-release/npm': 9.0.2
   '@semantic-release/release-notes-generator': 10.0.3
-  '@types/node': 18.7.23
+  '@types/node': 18.17.12
   '@types/tap': 15.0.8
   dotenv: 16.0.3
   eslint: 8.24.0
@@ -39,7 +39,7 @@ devDependencies:
   '@semantic-release/github': 8.1.0_semantic-release@19.0.5
   '@semantic-release/npm': 9.0.2_semantic-release@19.0.5
   '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.5
-  '@types/node': 18.7.23
+  '@types/node': 18.17.12
   '@types/tap': 15.0.8
   dotenv: 16.0.3
   eslint: 8.24.0
@@ -1055,8 +1055,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node/18.7.23:
-    resolution: {integrity: sha512-DWNcCHolDq0ZKGizjx2DZjR/PqsYwAcYUJmfMWqtVU2MBMG5Mo+xFZrhGId5r/O5HOuMPyQEcM6KUBp5lBZZBg==}
+  /@types/node/18.17.12:
+    resolution: {integrity: sha512-d6xjC9fJ/nSnfDeU0AMDsaJyb1iHsqCSOdi84w4u+SlN/UgQdY5tRhpMzaFYsI4mnpvgTivEaQd0yOUhAtOnEQ==}
     dev: true
 
   /@types/node/20.4.7:
@@ -1074,7 +1074,7 @@ packages:
   /@types/tap/15.0.8:
     resolution: {integrity: sha512-ZfeoiZlLIaFi4t6wccwbTEicrHREkP0bOq8dZVi/nWvG5F8O7LlS2cSUZBiOW/D4cgWS/p2uhM3lJoyzFAl80w==}
     dependencies:
-      '@types/node': 18.7.23
+      '@types/node': 18.17.12
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.36.2_nmtq5fftabqpy4jwac3dfu5p4q:
