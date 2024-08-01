@@ -17,7 +17,7 @@ specifiers:
   eslint-config-prettier: 8.10.0
   eslint-plugin-prettier: 4.2.1
   fastify: 4.7.0
-  fastify-plugin: 4.2.1
+  fastify-plugin: 4.5.1
   husky: 8.0.3
   prettier: 2.8.8
   semantic-release: 19.0.5
@@ -28,7 +28,7 @@ specifiers:
   typescript: 4.9.5
 
 dependencies:
-  fastify-plugin: 4.2.1
+  fastify-plugin: 4.5.1
 
 devDependencies:
   '@commitlint/cli': 17.8.1
@@ -3558,8 +3558,8 @@ packages:
     resolution: {integrity: sha512-qKRta6N7BWEFVlyonVY/V+BMLgFqktCUV0QjT259ekAIlbVrMaFnFLxJ4s/JPl4tou56S1BzPufI60bLe29fHA==}
     dev: true
 
-  /fastify-plugin/4.2.1:
-    resolution: {integrity: sha512-dlGKiwLzRBKkEf5J5ho0uAD/Jdv8GQVUbriB3tAX3ehRUXE4gTV3lRd5inEg9li1aLzb0EGj8y2K4/8g1TN06g==}
+  /fastify-plugin/4.5.1:
+    resolution: {integrity: sha512-stRHYGeuqpEZTL1Ef0Ovr2ltazUT9g844X5z/zEBFLG8RYlpDiOCIG+ATvYEp+/zmc7sN29mcIMp8gvYplYPIQ==}
     dev: false
 
   /fastify/4.7.0:
